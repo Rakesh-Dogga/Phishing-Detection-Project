@@ -1,5 +1,4 @@
 # Phishing Website Detection using Machine Learning
-
 A machine learning-based web application that analyzes website URLs and classifies them as either **Phishing Website** or **Legitimate Website**.
 
 The system extracts multiple URL-based features such as URL length, IP address presence, HTTPS usage, suspicious words, subdomain count, URL entropy, special characters, shortened URL usage, and suspicious TLDs. These features are provided to trained machine learning models to generate the prediction.
@@ -7,11 +6,9 @@ The system extracts multiple URL-based features such as URL length, IP address p
 The application is developed using **Python, Flask, HTML, CSS, and Machine Learning**. It provides users with a simple web interface where they can enter a URL, select a machine learning model, and view the detection result and model performance.
 
 ## Project Objective
-
 The main objective of this project is to develop a machine learning-based system that can identify potentially phishing URLs by analyzing their structural and lexical characteristics. The system will provide a convenient interface for testing URLs and displaying the classification results.
 
 ## Features
-
 - **URL Input:** Allows users to enter a website URL for analysis.
 - **URL Validation:** Checks whether the entered URL follows the required format.
 - **Machine Learning Model Selection:** Allows users to select between Random Forest and Decision Tree models.
@@ -26,7 +23,6 @@ The main objective of this project is to develop a machine learning-based system
 - **Repeated URL Testing:** Allows users to return to the home page and analyze another URL.
 
 ## Technologies Used
-
 ### Programming Language
 - **Python** — Used for data processing, feature extraction, machine learning model development, and backend application logic.
 
@@ -51,9 +47,15 @@ The main objective of this project is to develop a machine learning-based system
 - **Visual Studio Code** — Used for developing and managing the project files.
 
 ## Project Structure
-
 ```text
 Phishing-Detection-Project/
+│
+├── screenshots/
+│   ├── home_page.png
+│   ├── legitimate_result.png
+│   ├── model_comparison.png
+│   ├── result_page.png
+│   └── feature_analysis.png
 │
 ├── static/
 │   └── style.css
@@ -70,6 +72,7 @@ Phishing-Detection-Project/
 ├── dt_confusion_matrix.png
 ├── dt_model.pkl
 ├── features.py
+├── flowchart.png
 ├── model.py
 ├── rf_confusion_matrix.png
 ├── rf_model.pkl
@@ -97,23 +100,17 @@ Phishing-Detection-Project/
 | `whois_utils.py` | Contains utility functions for retrieving and processing WHOIS-related domain information. |
 
 ## Dataset
-
 The project will use two main types of URL datasets for training and evaluation:
-
 ### 1. Phishing Dataset
-
 The phishing dataset will contain URLs identified as malicious or phishing websites. The project will use phishing URLs collected from sources such as PhishTank. These URLs will be processed and converted into numerical features before being used for machine learning.
 
 ### 2. Legitimate Dataset
-
 The legitimate dataset will contain URLs belonging to trusted and commonly used websites. Sources such as Tranco and manually curated legitimate URL lists will be used to provide examples of non-phishing websites.
 
 ### Dataset Processing
-
 The collected URLs will be cleaned and processed before model training. Invalid, incomplete, and duplicate URLs will be removed. The datasets will then be converted into structured numerical feature data using the feature extraction functions implemented in `features.py`.
 
 The extracted features will include:
-
 - IP address presence
 - URL length
 - `@` symbol presence
@@ -134,7 +131,6 @@ The resulting numerical features will be used as inputs to the Decision Tree and
 > **Note:** The original dataset files are not included in this repository because of their size and are excluded through `.gitignore`.
 
 ## Installation and Setup
-
 ### 1. Clone the Repository
 Clone the project repository to your local system:
 ```bash
