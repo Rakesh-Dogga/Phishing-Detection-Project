@@ -24,3 +24,161 @@ The main objective of this project is to develop a machine learning-based system
 - **WHOIS Information:** Displays available domain-related information such as domain age and registration length.
 - **Security Analysis:** Displays detected suspicious indicators associated with the analyzed URL.
 - **Repeated URL Testing:** Allows users to return to the home page and analyze another URL.
+
+## Technologies Used
+
+### Programming Language
+- **Python** — Used for data processing, feature extraction, machine learning model development, and backend application logic.
+
+### Web Technologies
+- **HTML** — Used to create the structure of the web pages.
+- **CSS** — Used to design and style the web interface.
+- **Flask** — Used as the Python web framework to connect the user interface with the machine learning functionality.
+
+### Machine Learning
+- **Scikit-learn** — Used to train and evaluate the Decision Tree and Random Forest classification models.
+- **Decision Tree** — Used as one of the classification algorithms for phishing URL detection.
+- **Random Forest** — Used as another classification algorithm for phishing URL detection.
+
+### Data Processing
+- **Pandas** — Used for loading, processing, organizing, and preparing the dataset.
+- **NumPy** — Used for numerical operations and handling feature data.
+
+### Model Storage
+- **Pickle** — Used to save and load the trained machine learning models and related model information.
+
+### Development Environment
+- **Visual Studio Code** — Used for developing and managing the project files.
+
+## Project Structure
+
+```text
+Phishing-Detection-Project/
+│
+├── static/
+│   └── style.css
+│
+├── templates/
+│   ├── index.html
+│   ├── result.html
+│   └── comparison.html
+│
+├── .gitignore
+├── accuracy.txt
+├── app.py
+├── convert_dataset.py
+├── dt_confusion_matrix.png
+├── dt_model.pkl
+├── features.py
+├── model.py
+├── rf_confusion_matrix.png
+├── rf_model.pkl
+└── whois_utils.py
+```
+
+## File and Folder Description
+
+| File / Folder | Purpose |
+|---|---|
+| `static/style.css` | Contains CSS styles used to design and format the web application interface. |
+| `templates/index.html` | Provides the main page where the user enters a URL and selects a machine learning model. |
+| `templates/result.html` | Displays the prediction result, URL analysis, WHOIS information, and model performance. |
+| `templates/comparison.html` | Displays the comparison between the Random Forest and Decision Tree models. |
+| `.gitignore` | Specifies files and folders that should not be tracked by Git. |
+| `accuracy.txt` | Stores model performance information used by the application. |
+| `app.py` | Main Flask application that handles user requests, URL processing, model selection, prediction, and result rendering. |
+| `convert_dataset.py` | Processes and converts the collected dataset into the required format. |
+| `dt_confusion_matrix.png` | Confusion matrix visualization for the Decision Tree model. |
+| `dt_model.pkl` | Saved trained Decision Tree machine learning model. |
+| `features.py` | Contains functions used to extract numerical features from URLs. |
+| `model.py` | Used to train and evaluate the machine learning models and save the trained models. |
+| `rf_confusion_matrix.png` | Confusion matrix visualization for the Random Forest model. |
+| `rf_model.pkl` | Saved trained Random Forest machine learning model. |
+| `whois_utils.py` | Contains utility functions for retrieving and processing WHOIS-related domain information. |
+
+## Dataset
+
+The project will use two main types of URL datasets for training and evaluation:
+
+### 1. Phishing Dataset
+
+The phishing dataset will contain URLs identified as malicious or phishing websites. The project will use phishing URLs collected from sources such as PhishTank. These URLs will be processed and converted into numerical features before being used for machine learning.
+
+### 2. Legitimate Dataset
+
+The legitimate dataset will contain URLs belonging to trusted and commonly used websites. Sources such as Tranco and manually curated legitimate URL lists will be used to provide examples of non-phishing websites.
+
+### Dataset Processing
+
+The collected URLs will be cleaned and processed before model training. Invalid, incomplete, and duplicate URLs will be removed. The datasets will then be converted into structured numerical feature data using the feature extraction functions implemented in `features.py`.
+
+The extracted features will include:
+
+- IP address presence
+- URL length
+- `@` symbol presence
+- URL depth
+- HTTPS usage
+- Suspicious words
+- Hyphen presence
+- Subdomain count
+- Dot count
+- Digit ratio
+- URL entropy
+- Special character count
+- Shortened URL detection
+- Suspicious TLD detection
+
+The resulting numerical features will be used as inputs to the Decision Tree and Random Forest machine learning models.
+
+> **Note:** The original dataset files are not included in this repository because of their size and are excluded through `.gitignore`.
+
+## Installation and Setup
+
+### 1. Clone the Repository
+Clone the project repository to your local system:
+```bash
+git clone https://github.com/Rakesh-Dogga/Phishing-Detection-Project.git
+```
+Navigate to the project directory: 
+```bash
+cd Phishing-Detection-Project
+```
+
+### 2. Create a Virtual Environment
+Create a Python virtual environment:
+```bash
+python -m venv venv
+```
+
+Activate the virtual environment on Windows:
+```bash
+venv\Scripts\activate
+```
+
+### 3. Install Required Libraries
+Install the required python libraries:
+```bash
+pip install flask pandas numpy scikit-learn
+```
+if additinal libraries are required by whois_utils.py, install those libraries as well.
+
+### 4. Run the application
+Start the Flask application:
+```bash
+python app.py
+```
+
+The application will run locally and can be accessed through the URL displayed in the termonal, typically:
+```Plain text
+http://127.0.0.1:5000
+```
+
+### 5. Use the application
+1. Enter a valid website URL.
+2. Select a machine learning model.
+3. Click **Detect**.
+4. The system will extract URL features.
+5. The selected model will classify the URL.
+6. The result and model information will be displayed.
+7. Use **Check another URL** to analyze another URL.
