@@ -182,3 +182,24 @@ http://127.0.0.1:5000
 5. The selected model will classify the URL.
 6. The result and model information will be displayed.
 7. Use **Check another URL** to analyze another URL.
+
+
+## How It Works
+The system follows a sequence of steps to analyze a website URL and determine whether it is potentially phishing or legitimate.
+
+### Workflow
+1. **Enter URL:** The user enters a website URL into the application.
+2. **URL Validation:** The system checks whether the entered URL follows the required format.
+3. **Feature Extraction:** The system analyzes the URL and extracts relevant features such as URL length, IP address presence, HTTPS usage, suspicious words, subdomains, special characters, entropy, shortened URL usage, and suspicious TLDs.
+4. **Model Selection:** The user selects a machine learning model such as **Decision Tree** or **Random Forest**.
+5. **Prediction:** The extracted URL features are provided to the selected trained machine learning model.
+6. **Classification:**
+   The model classifies the URL as either:
+   - **Phishing Website**
+   - **Legitimate Website**
+8. **Result Display:** The application displays the prediction result along with relevant URL analysis and model information.
+9. **Model Performance:** The application can display model performance information such as accuracy, precision, recall, F1 score, and cross-validation results.
+
+### Overall Process
+
+
