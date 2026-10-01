@@ -1,0 +1,382 @@
+/* ----------INDEX PAGE---------- */
+/* complete body of the page of index */
+body{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #3b82f6, #22c55e);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    color: #1f2937;
+}
+
+h1{
+    font-size: 36px;
+    font-weight: 700;
+    color:#1f2937;
+    margin-bottom:10px;
+}
+.subtitle{
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+.container{
+    width: 100%;
+    max-width: 650px;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.18);
+    text-align: center;
+}
+input[type="text"]{
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    box-shadow: 2px 2px 5px grey;
+}
+
+input[type="submit"]{
+    padding: 15px 40px;
+    background: linear-gradient(to right, #28a745, #5cd65c);
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px #333;
+}
+
+input[type="submit"]:hover{
+    background: linear-gradient(to right, #218838, #45c945);
+    transform: scale(1.05);
+}
+
+input[type="submit"]:active{
+    transform: scale(0.98);
+}
+
+select{
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid gray;
+    box-shadow: 2px 2px 5px grey;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: #222;
+}
+
+
+
+/* ----------RESULT PAGE---------- */
+/* for phishing or legitimate website detention of the URL in result page  */
+.phishing-bg{
+    background:  #ff6f6f;
+}
+.safe-bg{
+    background: #5cd65c;
+}
+
+h2{
+    font-size:32px;
+    color:#1f2937;
+    margin-bottom:15px;
+}
+h3{
+    color:#374151;
+    margin-top:30px;
+    margin-bottom:15px;
+    font-size:22px;
+}
+.safe{
+    color: #5cd65c;
+    font-size: 25px;
+    font-weight: bolder;
+}
+.phishing{
+    color: #ff3838;
+    font-size: 25px;
+    font-weight: bolder;
+}
+ul{
+    text-align: left;
+    margin-top: 15px;
+}
+li{
+    margin: 5px 0;
+}
+button{
+    padding: 15px 40px;
+    background:  #5cd65c;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    box-shadow: 2px 2px 5px grey;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+button:hover{
+    background: #218838;
+    transform: scale(1.05);
+}
+
+button:active{
+    transform: scale(0.98);
+}
+
+.btn-link{
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 40px;
+    background: #0078da;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 2px 2px 5px grey;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-link:hover{
+    background: #008cfe;
+    transform: scale(1.05);
+}
+
+.btn-link:active{
+    transform: scale(0.98);
+}
+
+/* ---------- Information Cards ---------- */
+.info-card{
+    background: #ffffff;
+    border: 1px solid #696969;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+/* .info-card:hover{
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+} */
+
+.info-card h3{
+    margin-top: 0;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+
+    font-size: 22px;
+    color: #1f2937;
+
+    border-bottom: 2px dotted #696969;
+}
+
+.info-card p{
+    margin: 14px 0;
+    line-height: 1.6;
+    font-size: 17px;
+}
+
+.info-card ul{
+    margin: 0;
+    padding-left: 20px;
+}
+.feature-box{
+    margin:20px 0;
+}
+
+.feature-box summary{
+    list-style:none;
+    cursor:pointer;
+    background:#2563eb;
+    color:white;
+    padding:14px;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:600;
+    text-align:center;
+    transition:.3s;
+}
+
+.feature-box summary:hover{
+    background:#1d4ed8;
+}
+
+.feature-box summary::-webkit-details-marker{
+    display:none;
+}
+
+.feature-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:18px;
+
+    font-size:16px;
+
+}
+
+.feature-table th,
+.feature-table td{
+
+    border:1px solid #696969;
+
+    padding:12px;
+
+}
+
+.feature-table th{
+
+    background:#f2f2f2;
+
+    text-align:center;
+
+    font-weight:bold;
+
+}
+
+.feature-table td:nth-child(1){
+
+    width:10%;
+
+    text-align:center;
+
+}
+
+.feature-table td:nth-child(2){
+
+    width:60%;
+
+    text-align:left;
+
+    font-weight:600;
+
+}
+
+.feature-table td:nth-child(3){
+
+    width:30%;
+
+    text-align:center;
+
+}
+.report-url{
+    font-size: 18px;
+    margin: 15px;
+    word-break: break-word;
+}
+.report-result{
+    font-size:30px;
+    font-weight:700;
+    margin:18px 0;
+}
+
+.report-result .label{
+    color:#1f2937;
+}
+.risk-level{
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:30px;
+}
+
+.risk-level span{
+    font-weight:700;
+}
+
+/* ---------- Model Performance ---------- */
+
+.performance-list{
+    margin-top: 10px;
+}
+
+.performance-list p{
+    font-size: 17px;
+    margin: 14px 0;
+    line-height: 1.6;
+}
+
+.performance-list strong{
+    color: #1f2937;
+}
+
+
+/* ==============================
+   Comparison Page
+============================== */
+
+.comparison-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    table-layout:fixed;
+}
+
+.comparison-table th{
+    background:#f2f2f2;
+    padding:12px;
+    border:1px solid #696969;
+    font-size:20px;
+    font-weight: 700;
+    width:37.5%;
+}
+
+.comparison-table td{
+    padding:12px;
+    border:1px solid #696969;
+    text-align:center;
+    font-size:17px;
+    white-space:nowrap;
+}
+
+.comparison-table td:first-child{
+    width:22%;
+    font-weight:bold;
+    text-align:left;
+}
+
+.feature-summary{
+
+    background:#2f61db;
+    color:white;
+    padding:14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    text-align:center;
+    list-style:none;
+    margin-bottom:15px;
+}
+
+.feature-summary::-webkit-details-marker{
+    display:none;
+}
+
+.feature-summary::marker{
+    display:none;
+}
+
+.bottom-button{
+    text-align:center;
+    margin-top:30px;
+}

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phishing Website Detection</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- HEADER -->
+      <h1>Phishing Website Detector</h1>
+      <p class="subtitle">
+        -- Detects malicious URLs using Machine Learning Techniques.
+      </p>
+
+      <!-- FORM -->
+      <form action="/predict" method="post" onsubmit="return handleSubmit();">
+        <input
+          type="text"
+          name="url"
+          id="urlInput"
+          placeholder="Enter URL (https://example.com)"
+          required
+        />
+
+        <br /><br />
+
+        <label>Select Model:</label>
+        <select name="model">
+          <option value="rf">Random Forest</option>
+          <option value="dt">Decision Tree</option>
+          <option value="both">Random Forest and Decision Tree</option>
+        </select>
+
+        <br /><br />
+
+        <input type="submit" value="Detect" />
+      </form>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+      function handleSubmit() {
+        let url = document.getElementById("urlInput").value;
+        let loading = document.getElementById("loading");
+
+        // Basic validation
+        if (!url.startsWith("http://") && !url.startsWith("https://")) {
+          alert("Please enter a valid URL (must start with http or https)");
+          return false;
+        }
+
+        // Show loading text
+        loading.style.display = "block";
+
+        return true;
+      }
+    </script>
+  </body>
+</html>

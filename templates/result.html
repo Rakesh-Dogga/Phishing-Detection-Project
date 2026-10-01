@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body class="{{ 'phishing-bg' if 'phishing' in prediction.lower() else 'safe-bg' }}">
+
+    <div class="container">
+      <h2>Phishing Website Detection Report</h2>
+      <p class="report-url">
+          <strong>URL:</strong>
+           {{ url }} 
+      </p>
+      <p class="report-result">
+
+        <span class="label">Result:</span>
+
+        <span class="{{ 'safe' if 'legitimate' in prediction.lower() else 'phishing' }}">
+            {{ prediction }}
+        </span>
+
+      </p>
+      <p class="risk-level">
+
+        <strong>Overall Risk Level:</strong>
+
+        <span style="color:{{ risk_color }};">
+            {{ risk_level }}
+        </span>
+
+      </p>
+
+      <div class="info-card">
+        <h3 class="performance-heading">Model Information</h3>
+        <p><strong>Algorithm: </strong>{{ model_name }}</p>
+        <p><strong>Prediction Confidence: </strong>{{ confidence }}%</p>
+      </div>
+
+      <details class="feature-box">
+
+        <summary>URL Feature Analysis</summary>
+
+        <table class="feature-table">
+
+          <thead>
+
+              <tr>
+                  <th>S.No</th>
+                  <th>Feature</th>
+                  <th>Value</th>
+              </tr>
+
+          </thead>
+
+          <tbody>
+
+              {% for name, value in features %}
+
+              <tr>
+
+                  <td>{{ loop.index }}</td>
+
+                  <td>{{ name }}</td>
+
+                  <td>{{ value }}</td>
+
+              </tr>
+
+              {% endfor %}
+
+          </tbody>
+
+        </table>
+
+      </details>
+
+      <div class="info-card">
+        <h3>WHOIS Information</h3>
+        <p><strong>Domain Age: </strong>{{ domain_age }}</p>
+
+        <p><strong>Registration Length: </strong>{{ registration_length }}</p>
+        
+      </div>
+
+      <div class="info-card">
+        <h3>Security Analysis</h3>
+        <ul>
+          {% for status, message in analysis %}
+
+            {% if status == "positive" %}
+                <li style="color:green;">✓ {{ message }}</li>
+
+            {% elif status == "warning" %}
+                <li style="color:darkorange;">⚠ {{ message }}</li>
+
+            {% else %}
+                <li>{{ message }}</li>
+
+            {% endif %}
+
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- <button onclick="getAccuracy()">Show Model Performance</button> -->
+
+      <div id="accuracy_result"></div>
+      <a href="/" class="btn-link">Check Another URL</a>
+    </div>
+    <script>
+      function getAccuracy() {
+        fetch("/get_accuracy", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: "model={{ model_choice }}",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+
+            document.getElementById("accuracy_result").innerHTML = `
+
+            <div class="info-card">
+
+                <h3>Model Performance</h3>
+
+                <div class="performance-list">
+
+                    <p><strong>Accuracy:</strong> ${data.accuracy}%</p>
+
+                    <p><strong>Precision:</strong> ${data.precision}%</p>
+
+                    <p><strong>Recall:</strong> ${data.recall}%</p>
+
+                    <p><strong>F1 Score:</strong> ${data.f1}%</p>
+
+                    <p><strong>Cross Validation:</strong> ${data.cv}%</p>
+
+                </div>
+
+            </div>
+
+            `;
+
+        })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+          getAccuracy();
+      });
+    </script>
+  </body>
+</html>

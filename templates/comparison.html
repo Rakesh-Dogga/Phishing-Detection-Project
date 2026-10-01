@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Comparison</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{{ page_bg }}">
+    <div class="container">
+        
+        <h2>Phishing Website Detection Report</h2>
+
+        <p class="report-url">
+            <strong>URL:</strong> {{ url }}
+        </p>
+
+        <div class="info-card">
+
+            <h3>Model Comparison</h3>
+
+            <table class="comparison-table">
+
+                <tr>
+                    <th></th>
+                    <th>Random Forest</th>
+                    <th>Decision Tree</th>
+                </tr>
+
+                <tr>
+                    <td><strong>Prediction</strong></td>
+                    <td class="{{ 'phishing' if 'Phishing' in rf_prediction else 'safe' }}">
+                        {{ rf_prediction }}
+                    </td>
+                    <td class="{{ 'phishing' if 'Phishing' in dt_prediction else 'safe' }}">
+                        {{ dt_prediction }}
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Risk Level</strong></td>
+
+                    <td style="color:{{ rf_risk_color }}; font-weight:bold;">
+                        {{ rf_risk_level }}
+                    </td>
+
+                    <td style="color:{{ dt_risk_color }}; font-weight:bold;">
+                        {{ dt_risk_level }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>Confidence</strong></td>
+                    <td>{{ rf_confidence }}%</td>
+                    <td>{{ dt_confidence }}%</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <details class="feature-box">
+
+            <summary class="feature-summary">URL Feature Analysis</summary>
+
+            <table class="feature-table">
+
+            <thead>
+
+                <tr>
+                    <th>S.No</th>
+                    <th>Feature</th>
+                    <th>Value</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for name, value in features %}
+
+                <tr>
+
+                    <td>{{ loop.index }}</td>
+
+                    <td>{{ name }}</td>
+
+                    <td>{{ value }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+            </table>
+
+        </details>
+
+        <div class="info-card">
+
+            <h3>WHOIS Information</h3>
+
+            <p><strong>Domain Age:</strong> {{ domain_age }}</p>
+
+            <p><strong>Registration Length:</strong> {{ registration_length }}</p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>Security Analysis</h3>
+
+            <ul>
+
+                {% for status, message in analysis %}
+
+                    {% if status == "positive" %}
+                        <li style="color:#28a745;">✓ {{ message }}</li>
+
+                    {% elif status == "warning" %}
+                        <li style="color:darkorange;">⚠ {{ message }}</li>
+
+                    {% else %}
+                        <li>{{ message }}</li>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+
+        <button id="showPerformanceBtn" onclick="showPerformance()">Show Model Performance</button>
+        <div id="performanceCard" style="display:none;">
+            <div class="info-card">
+
+                <h3>Model Performance</h3>
+
+                <table class="comparison-table">
+
+                    <tr>
+                        <th></th>
+                        <th>Random Forest</th>
+                        <th>Decision Tree</th>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Accuracy</strong></td>
+                        <td>{{ rf_accuracy }}%</td>
+                        <td>{{ dt_accuracy }}%</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Precision</strong></td>
+                        <td>{{ rf_precision }}%</td>
+                        <td>{{ dt_precision }}%</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Recall</strong></td>
+                        <td>{{ rf_recall }}%</td>
+                        <td>{{ dt_recall }}%</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>F1 Score</strong></td>
+                        <td>{{ rf_f1 }}%</td>
+                        <td>{{ dt_f1 }}%</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Cross Validation</strong></td>
+                        <td>{{ rf_cv }}%</td>
+                        <td>{{ dt_cv }}%</td>
+                    </tr>
+
+                </table>
+
+            </div>
+        </div>
+
+        <div class="bottom-button">
+
+            <a href="/" class="btn-link">
+                Check Another URL
+            </a>
+
+        </div>
+    </div>
+
+    <script>
+        function showPerformance(){
+            document.getElementById("performanceCard").style.display = "block";
+
+            document.getElementById("showPerformanceBtn").style.display = "none";
+        }
+    </script>
+    
+</body>
+</html>
