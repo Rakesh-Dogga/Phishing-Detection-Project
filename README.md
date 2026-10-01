@@ -79,10 +79,16 @@ Phishing-Detection-Project/
 └── whois_utils.py
 ```
 
-## File and Folder Description
+### File and Folder Description
 
 | File / Folder | Purpose |
 |---|---|
+| `screenshots/` | Contains screenshots demonstrating the different pages and features of the web application. |
+| `screenshots/home_page.png` | Screenshot of the main page where users enter a URL and select a machine learning model. |
+| `screenshots/legitimate_result.png` | Screenshot showing the result for a URL classified as a legitimate website. |
+| `screenshots/model_comparison.png` | Screenshot showing the comparison between the Random Forest and Decision Tree models. |
+| `screenshots/result_page.png` | Screenshot showing a phishing detection result along with URL analysis and model performance. |
+| `screenshots/feature_analysis.png` | Screenshot showing the extracted URL features used for prediction. |
 | `static/style.css` | Contains CSS styles used to design and format the web application interface. |
 | `templates/index.html` | Provides the main page where the user enters a URL and selects a machine learning model. |
 | `templates/result.html` | Displays the prediction result, URL analysis, WHOIS information, and model performance. |
@@ -94,6 +100,7 @@ Phishing-Detection-Project/
 | `dt_confusion_matrix.png` | Confusion matrix visualization for the Decision Tree model. |
 | `dt_model.pkl` | Saved trained Decision Tree machine learning model. |
 | `features.py` | Contains functions used to extract numerical features from URLs. |
+| `flowchart.png` | Flowchart illustrating the overall process of the phishing website detection system. |
 | `model.py` | Used to train and evaluate the machine learning models and save the trained models. |
 | `rf_confusion_matrix.png` | Confusion matrix visualization for the Random Forest model. |
 | `rf_model.pkl` | Saved trained Random Forest machine learning model. |
