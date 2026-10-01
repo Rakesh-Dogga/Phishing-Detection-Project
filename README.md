@@ -256,3 +256,47 @@ The application displays the extracted URL features used for the machine learnin
 <p align="center">
   <img src="screenshots/feature_analysis.png" alt="URL Feature Analysis" width="800">
 </p>
+
+## Model Performance
+The trained machine learning models are evaluated using multiple performance metrics to measure their classification performance.
+
+| Metric | Description |
+|---|---|
+| **Accuracy** | Measures the percentage of URLs that are classified correctly. |
+| **Precision** | Measures how many URLs predicted as phishing are actually phishing. |
+| **Recall** | Measures how effectively the model identifies phishing URLs. |
+| **F1 Score** | Provides a combined measure of precision and recall. |
+| **Cross-Validation** | Evaluates model performance across multiple subsets of the dataset. |
+
+### Confusion Matrix
+The project generates confusion matrix visualizations for both the Decision Tree and Random Forest models.
+
+#### Decision Tree
+<p align="center">
+  <img src="dt_confusion_matrix.png" alt="Decision Tree Confusion Matrix" width="600">
+</p>
+
+#### Random Forest
+<p align="center">
+  <img src="rf_confusion_matrix.png" alt="Random Forest Confusion Matrix" width="600">
+</p>
+
+The application also displays model performance information through the web interface when analyzing a URL.
+
+## Limitations
+The current system has the following limitations:
+- The system primarily analyzes **URL-based features** and does not perform complete webpage content analysis.
+- Prediction performance depends on the **quality and representativeness of the training dataset**.
+- A legitimate-looking URL may still belong to a **compromised or malicious website**.
+- The system may not correctly identify **new phishing techniques** that differ significantly from patterns present in the training data.
+
+## Future Enhancements
+The project can be further enhanced with the following features:
+- **Webpage Content Analysis:** Analyze webpage content, HTML structure, and scripts in addition to URL-based features.
+- **Deep Learning Models:** Explore deep learning techniques for detecting more complex phishing patterns.
+- **Real-Time Threat Intelligence:** Integrate external threat intelligence sources to improve detection of newly reported phishing URLs.
+- **Browser Extension:** Develop a browser extension that can automatically analyze URLs while users browse the web.
+- **Larger and More Diverse Datasets:** Include continuously updated phishing and legitimate URL datasets to improve model generalization.
+
+## License
+This project was developed as an academic project for educational and research purposes.
