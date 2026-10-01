@@ -228,25 +228,31 @@ The project includes confusion matrix visualizations for both models:
 ## Project Screenshots
 
 ### Home Page
-
 The home page allows the user to enter a website URL and select a machine learning model for detection.
+<p align="center">
+  <img src="screenshots/home_page.png" alt="Phishing Website Detection Home Page" width="800">
+</p>
 
-![Home Page](screenshots/home_page.png)
+### Phishing Detection Result
+The result page displays the phishing classification, risk level, prediction confidence, URL analysis, WHOIS information, security analysis, and model performance.
+<p align="center">
+  <img src="screenshots/result_page.png" alt="Phishing Website Detection Result" width="800">
+</p>
 
-### Detection Result
-
-The result page displays whether the analyzed URL is classified as a phishing or legitimate website.
-
-![Detection Result](screenshots/result_page.png)
+### Legitimate Website Result
+The application can also identify legitimate websites and display the corresponding risk level, confidence, domain information, and model performance.
+<p align="center">
+  <img src="screenshots/legitimate_result.png" alt="Legitimate Website Detection Result" width="800">
+</p>
 
 ### Model Comparison
-
 The comparison page displays the predictions and performance information of the Decision Tree and Random Forest models.
-
-![Model Comparison](screenshots/comparison.png)
+<p align="center">
+  <img src="screenshots/model_comparison.png" alt="Random Forest and Decision Tree Model Comparison" width="800">
+</p>
 
 ### URL Feature Analysis
-
 The application displays the extracted URL features used for the machine learning prediction.
-
-![URL Feature Analysis](screenshots/feature_analysis.png)
+<p align="center">
+  <img src="screenshots/feature_analysis.png" alt="URL Feature Analysis" width="800">
+</p>
