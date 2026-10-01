@@ -201,5 +201,7 @@ The system follows a sequence of steps to analyze a website URL and determine wh
 9. **Model Performance:** The application can display model performance information such as accuracy, precision, recall, F1 score, and cross-validation results.
 
 ### Overall Process
-
+<p align="center">
+   <img src="flowchart.png" alt="Phiahing Website Detection Flowchart" width="300"></img>
+</p>
 
