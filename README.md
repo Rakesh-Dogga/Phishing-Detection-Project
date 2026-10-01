@@ -205,3 +205,48 @@ The system follows a sequence of steps to analyze a website URL and determine wh
    <img src="flowchart.png" alt="Phiahing Website Detection Flowchart" width="300"></img>
 </p>
 
+## Machine Learning Models
+The project uses two supervised machine learning classification algorithms to detect phishing websites based on extracted URL features.
+### 1. Decision Tree
+The Decision Tree algorithm classifies URLs by making a sequence of decisions based on their extracted features. Each decision splits the data according to feature values until a final classification is reached.
+In this project, the trained Decision Tree model is stored in:
+```text
+dt_model.pkl
+```
+### 2. Random Forest
+The Random Forest algorithm uses multiple decision trees and combines their predictions to produce the final classification. It is used to analyze the extracted URL features and classify the URL as phishing or legitimate.
+In this project, the trained Random Forest model is stored in:
+```text
+rf_model.pkl
+```
+### Model Comparison
+The application allows users to select and use either model for URL classification. It also provides a comparison of the model predictions and performance.
+The project includes confusion matrix visualizations for both models:
+- `dt_confusion_matrix.png`
+- `rf_confusion_matrix.png`
+
+## Project Screenshots
+
+### Home Page
+
+The home page allows the user to enter a website URL and select a machine learning model for detection.
+
+![Home Page](screenshots/home_page.png)
+
+### Detection Result
+
+The result page displays whether the analyzed URL is classified as a phishing or legitimate website.
+
+![Detection Result](screenshots/result_page.png)
+
+### Model Comparison
+
+The comparison page displays the predictions and performance information of the Decision Tree and Random Forest models.
+
+![Model Comparison](screenshots/comparison.png)
+
+### URL Feature Analysis
+
+The application displays the extracted URL features used for the machine learning prediction.
+
+![URL Feature Analysis](screenshots/feature_analysis.png)
